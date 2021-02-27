@@ -11,8 +11,10 @@ jobs:
       # Prepare and test the app just like a normal build
       - name: npm Install
         run: npm install
-      - name: npm Test
-        run: npm test
+      - name: Run headless test
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: npm test
 
       # Do landmine testing using action
       - name: Sweeping for Landmines
