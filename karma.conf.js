@@ -37,7 +37,16 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['MyHeadlessChrome'],
+    customLaunchers: {
+      MyHeadlessChrome: {
+        base: "Chrome",
+        flags: [
+          "--headless", 
+          "--disable-gpu"
+        ]
+      }
+    },
     singleRun: false,
     restartOnFileChange: true
   });
