@@ -11,12 +11,10 @@ jobs:
       # Prepare and test the app just like a normal build
       - name: npm Install
         run: npm install
-      - name: npm Test
-        run: npm test
 
       # Do landmine testing using action
       - name: Sweeping for Landmines
-        uses: ./
+        uses: tylermurry/github-pr-landmine@v1
         with:
           token: ${{ github.token }}
           test-command: 'npm test'
