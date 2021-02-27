@@ -11,13 +11,11 @@ jobs:
       # Prepare and test the app just like a normal build
       - name: npm Install
         run: npm install
-      - name: npm Test
-        run: xvfb-run --auto-servernum npm test
 
       # Do landmine testing using action
       - name: Sweeping for Landmines
         uses: ./
         with:
           token: ${{ github.token }}
-          test-command: 'xvfb-run --auto-servernum npm test'
+          test-command: 'npm test'
           test-command-timeout: '5000'
